@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mtpoc.app"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "microservice",
+    "baseName": "mtpoc",
+    "packageName": "com.mtpoc.app",
+    "packageFolder": "com/mtpoc/app",
+    "serverPort": "8082",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ODNkN2MxMDc4OTVlM2JlZDdiYzIyMTU2MWRmYWM3ZjBhYjNiNjc2Y2JkZmNkNjY2OWU0NGM1ODg0ZGQ2NmU0MDhhZTU2MjA1MzdlZTE1ZmU5ZmVjOGQ3YzhlOWQ3OGFkYjhjOTRlNzY5NGNiYzk3OWZjMzQxZjZkNGM2ZDI0N2M=",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
