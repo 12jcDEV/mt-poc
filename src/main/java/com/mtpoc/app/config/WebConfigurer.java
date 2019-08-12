@@ -1,5 +1,6 @@
 package com.mtpoc.app.config;
 
+import com.mtpoc.app.tenancy.TenantInterceptor;
 import io.github.jhipster.config.JHipsterProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.handler.MappedInterceptor;
 
 import javax.servlet.*;
 import java.nio.charset.StandardCharsets;
@@ -76,4 +78,9 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
         return new CorsFilter(source);
     }
 
+
+    @Bean
+    public MappedInterceptor mappedInterceptor() {
+        return new MappedInterceptor(null, new TenantInterceptor());
+    }
 }
