@@ -13,27 +13,16 @@ import static com.mtpoc.app.tenancy.MultiTenantConstants.DEFAULT_TENANT_ID;
 @Component
 public class TenantInterceptor extends HandlerInterceptorAdapter {
 
-    //@Value("${jwt.header}")
-    private String tokenHeader;
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
         throws Exception {
 
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Prehandle");
-
-        String authToken = request.getHeader("Authorization");
         String tid = request.getHeader("tid");
-        System.out.println("TID: " + tid);
-        // authToken.startsWith("Bearer ")
-        // String authToken = header.substring(7);
 
-        if(StringUtils.isEmpty(authToken))
+        if (StringUtils.isEmpty(tid))
             tid = DEFAULT_TENANT_ID;
 
-
         TenantContext.setCurrentTenant(tid);
-
         return true;
     }
 
@@ -41,7 +30,6 @@ public class TenantInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(
         HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
         throws Exception {
-        System.out.println();
         TenantContext.clear();
     }
 }
